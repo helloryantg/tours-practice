@@ -21,15 +21,31 @@
             border-bottom: 3px solid $color-primary;
         }
 
+        &:focus:invalid {
+            // Changes the color of the border to orange when it is invald
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
         &::-webkit-input-placeholder {
             color: $color-grey-dark-2;
         }
     }
 
 
-
     &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
+    }
 
+    // The plus is an adjacent sibbling selector. The ~ is the sibbling selector when there are others in between
+    &__input:placeholder-shown + &__label {
+        opacity: 0; // We need opacity since we want to animate
+        visibility: hidden;
+        transform: translateY(-4rem);
     }
 
 
