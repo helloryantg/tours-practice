@@ -8,23 +8,37 @@
 
 html {
     // This defines what 1rem is
-    font-size: 62.5%;
-
-    @include respond(phone) {
+    // 1 rem = 10px; 10x/16px = 62.5%
+    font-size: 62.5%; 
+    
+    
+    @include respond(tablet-landscape) { // width < 1200?
+        // 1 rem = 9px, 9/16 = 56.25%  
+        font-size: 56.25%;
+    }
+    // We needed to place this above since the media queries were conflicting
+    
+    @include respond(tablet-portrait) { // width < 900?
+        // 1 rem = 8px, 8/16 = 50% I want this to be 8px so I divide by 16px
         font-size: 50%;
     }
-
-    @include respond(tablet-portrait) {
-        font-size: 60%;
-    }
-    @include respond(tablet-landscape) {
-        font-size: 70%;
-    }
+    
     @include respond(big-desktop) {
-        font-size: 80%;
+        // 1 rem = 12px, 12/16 = 75%
+        font-size: 75%;
     }
+    
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // }
+
 }
 
 body {
     box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tablet-landscape) {
+        padding: 0;
+    }
 }

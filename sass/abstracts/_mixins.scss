@@ -17,7 +17,7 @@
 /*
 0 - 600px       :   Phone
 600px - 900px   :   Tablet portrait
-900px - 12000px :   Tablet landscape
+900px - 1200px :   Tablet landscape
 (1200 - 1800px) :   Normal Styles applied / Desktop First approach
 1800px+         :   Big desktop
 
@@ -26,6 +26,10 @@ $breakpoint argument choices:
 - tablet-portrait
 - tablet-landscape
 - big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
 */
 
 @mixin respond($breakpoint) {
@@ -36,7 +40,7 @@ $breakpoint argument choices:
         @media (max-width: 56.25em) { @content }; // 900px
     }
     @if $breakpoint == tablet-landscape {
-        @media (max-width: 75emem) { @content }; // 1200px
+        @media (max-width: 75em) { @content }; // 1200px
     }
     @if $breakpoint == big-desktop {
         // this is a min-width
